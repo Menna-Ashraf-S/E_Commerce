@@ -1,4 +1,4 @@
-import 'package:group_pro/local/SQLcart.dart';
+import 'package:flutter_pro/local/SQLcart.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -21,7 +21,7 @@ class CartHelper {
     db = await openDatabase(join(await getDatabasesPath(), 'cart_List.db'),
         version: 1, onCreate: (Database db, int version) async {
           await db.execute('''
-          create table $cartTable (
+          create table cartTable (
           $columnId integer not null,
           $columnCount integer not null,
           $columnPrice real not null,
@@ -32,18 +32,18 @@ class CartHelper {
         });
   }
 
-  Future<Carts> insertCart(Carts cart) async {
-    cart.id = await db.insert(cartTable, cart.toMap());
-    return recipe;
+  Future<int?> insertCart(Carts cart) async {
+    cart.id = await db.insert('cartTable', cart.toMap());
+    return cart.id ;
   }
 
   Future<int> deleteCart(int id) async {
     return await db
-        .delete(cartTable, where: '$columnId = ?', whereArgs: [id]);
+        .delete('cartTable', where: '$columnId = ?', whereArgs: [id]);
   }
 
   Future<List<Carts>> getAllRecipes() async {
-    List<Map<String, dynamic>> CartMaps = await db.query(cartTable);
+    List<Map<String, dynamic>> CartMaps = await db.query('cartTable');
     if (CartMaps.isEmpty) {
       return [];
     } else {
