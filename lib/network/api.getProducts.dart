@@ -20,7 +20,7 @@ late String category;
   Future<List<ProductsData>> my_api ()
 
 async {
-   Response req= await get(Uri.parse('https://fakestoreapi.com/products/category/$category'));
+   Response req= await get(Uri.parse('https://fakestoreapi.com/products/category/jewelery'));
   
 
 

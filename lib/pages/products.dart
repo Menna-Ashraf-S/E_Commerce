@@ -36,7 +36,7 @@ class _ProductsState extends State<Products> {
 
 
                if(!snapshot.hasData){
-        return CircularProgressIndicator();}
+        return Center(child: CircularProgressIndicator());}
 
         else{
 
@@ -46,11 +46,11 @@ class _ProductsState extends State<Products> {
 
           return GridView.builder(
 
-
+            
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
             mainAxisSpacing: 5 ,
-            crossAxisSpacing: 20
-        
+            crossAxisSpacing: 5 ,
+            childAspectRatio: (0.82 / 1.32) ,
             
             
             ),
@@ -65,7 +65,7 @@ class _ProductsState extends State<Products> {
 
                        
                         child: Padding(
-                          padding: EdgeInsets.only(top: 6),
+                          padding: EdgeInsets.only(top: 20),
                           child: Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -76,63 +76,54 @@ class _ProductsState extends State<Products> {
                               
                               children: [
                                
-                               
+                               Container(
+                                width: 175,
+                                height: 190 ,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.grey ,width: 1 ,
+                                    ),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(15),
+                                    ),
+                                    ),
+              
+                                child: ClipRRect( borderRadius: BorderRadius.circular (20),
+                                  child: Image.network('${product.image}' ,
+                                 width: 175,height: 190 ,),
+                                )
+                               ),
                                   
-                                     Container(
-                                     height: 90,
-                                     width: 180,
-                                   
-                                    decoration: BoxDecoration(
-                                       
-
-
-                                       borderRadius: BorderRadius.circular(10),
-                                      image:DecorationImage(
-                                       fit: BoxFit.cover,
-                                                          
-                                       image:NetworkImage(product.image!))
-                                               
-                                                                 )
-                                                                 ),
-                                  
-                               
                           
                                Padding(
                                  padding: const EdgeInsets.all(4.0),
-                                 child: Text(product.title,
-                                 style: TextStyle (
+                                 child: Container( width: 175 ,
+                                   child: Text(product.title,
+                                   textAlign: TextAlign.center,
+                                   style: TextStyle (
+                                       
                                      
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      color: Colors.grey,
+                                      
+                                                           
+                                   ),
                                    
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                    color: Colors.grey,
-                                    
-                          
-                                 ),
-                                 
-                                 
+                                   
+                                   ),
                                  ),
                                ),
                                
                                         
                              Text('${product.price}',
+                             textAlign: TextAlign.center,
                                  style: TextStyle (
-                                     
-                                   
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    fontSize: 18,
                                     color: Colors.black
-                                    
-                          
                                  ),
-                                 
-                                 
-                                 ),
-                                        
-                                        
-                                        
-                                        
-                                        
+                                 ),       
                                         
                               ]),
                           ),
