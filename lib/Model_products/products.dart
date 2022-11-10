@@ -29,7 +29,7 @@ this.id=map['id'] as int;
 
 this.title=map['title'] as String;
 
-this.price= double .parse(map['price'].toString()  );
+this.price= double.parse(map['price'].toString());
 
 this.description=map['description'] as String;
 

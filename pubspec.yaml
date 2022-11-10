@@ -43,6 +43,7 @@ dependencies:
   roundcheckbox:
   http:
   url_launcher:
+  flutter_rating_bar: 
   # image_stack: <latest_version>
 
 dev_dependencies:
