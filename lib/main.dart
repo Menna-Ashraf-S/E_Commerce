@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/pages/details.dart';
+import 'package:flutter_pro/pages/detailsWO.dart';
+import 'package:flutter_pro/pages/detailsWS.dart';
 import 'package:flutter_pro/pages/products.dart';
 
 
@@ -9,7 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false ,
-      home: Products(),
+       initialRoute: '/products',
+      routes: <String,WidgetBuilder>{
+        '/' :(context) => Home() ,
+        '/products' :(context) =>Products() ,
+        '/details' :(context) => Details(),
+        '/detailsWO' :(context) => DetailsWO(), 
+        '/detailsWS' :(context) => DetailsWS(),
+        }
     );
   }
 }

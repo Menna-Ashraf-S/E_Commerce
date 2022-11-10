@@ -3,7 +3,7 @@ import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
 
-class Details  extends StatefulWidget {
+class DetailsWS  extends StatefulWidget {
  
   @override
   _HomeState  createState() => _HomeState();
@@ -11,11 +11,11 @@ class Details  extends StatefulWidget {
 }
 
 
-class _HomeState extends State < Details > {
+class _HomeState extends State < DetailsWS > {
 
 int quantity = 1 ;
-String selected_Size = 'M';
-   List sizes = ['S', 'M','L','XL','2XL'];
+String selected_Size = '10';
+   List sizes = ['7', '8','9','10','11','12','13'];
   
 
   @override
@@ -27,7 +27,7 @@ String selected_Size = 'M';
             title: Text('${args.category}\'s details',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold , color: Colors.black,
-              fontSize: 20),
+              fontSize: 25),
             
             
             
@@ -195,7 +195,7 @@ String selected_Size = 'M';
                SizedBox(height: 8,),
 
               Padding(
-                padding: const EdgeInsets.only(left: 20 , right: 15),
+                padding: const EdgeInsets.only(left: 15 , right: 15),
                 child: Container( width: double.infinity, height: 70,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -215,7 +215,7 @@ String selected_Size = 'M';
                                   child: Row(
                                     children: <Widget>[
                                       Container(
-                                        width: 45, height: 45,
+                                        width: 40, height: 40,
                                         decoration: BoxDecoration(color: selected_Size == sizes[index] ?  Colors.red : Color.fromARGB(255, 146, 148, 150),
                                          borderRadius: BorderRadius.all(Radius.circular(8),
                                         ), 
@@ -228,7 +228,7 @@ String selected_Size = 'M';
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 31,),
+                                      SizedBox(width: 13,),
                                     ],
                                   ),
                                 ),

@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart ';
 import 'package:flutter_pro/Model_products/products.dart';
 
@@ -20,7 +18,7 @@ late String category;
   Future<List<ProductsData>> my_api ()
 
 async {
-   Response req= await get(Uri.parse('https://fakestoreapi.com/products/category/jewelery'));
+   Response req= await get(Uri.parse("https://fakestoreapi.com/products/category/"));
   
 
 
