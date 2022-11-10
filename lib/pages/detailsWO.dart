@@ -3,7 +3,7 @@ import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
 
-class Details  extends StatefulWidget {
+class DetailsWO  extends StatefulWidget {
  
   @override
   _HomeState  createState() => _HomeState();
@@ -11,11 +11,9 @@ class Details  extends StatefulWidget {
 }
 
 
-class _HomeState extends State < Details > {
+class _HomeState extends State < DetailsWO > {
 
 int quantity = 1 ;
-String selected_Size = 'M';
-   List sizes = ['S', 'M','L','XL','2XL'];
   
 
   @override
@@ -30,7 +28,7 @@ String selected_Size = 'M';
             title: Text('${args.category}\'s details',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold , color: Colors.black,
-              fontSize: 20),
+              fontSize: 22),
             
             
             
@@ -128,7 +126,7 @@ String selected_Size = 'M';
                                       
                                     });
                                   },
-                                  child: Container( width: 35, height: 35,
+                                  child: Container( width: 30, height: 30,
                                   decoration: BoxDecoration(color: Color.fromARGB(255, 169, 171, 172), 
                                   borderRadius: BorderRadius.all(Radius.circular(5),
                                   ),
@@ -143,7 +141,7 @@ String selected_Size = 'M';
                               
                                  Text('${quantity}',
                                  style: TextStyle(
-                                  fontSize: 20 ,  color: Colors.black, fontWeight: FontWeight.bold
+                                  fontSize: 18 ,  color: Colors.black, fontWeight: FontWeight.bold
                                 ),
                                 ),
                               
@@ -155,7 +153,7 @@ String selected_Size = 'M';
                                       quantity ++ ;
                                     });
                                   },
-                                  child: Container( width: 35, height: 35,
+                                  child: Container( width: 30, height: 30,
                                   decoration: BoxDecoration(color: Color.fromARGB(255, 169, 171, 172),
                                    borderRadius: BorderRadius.all(Radius.circular(5),
                                   ),
@@ -195,53 +193,7 @@ String selected_Size = 'M';
                 
               ),
 
-               SizedBox(height: 8,),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 25 , right: 15),
-                child: Container( width: double.infinity, height: 70,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: sizes.length,
-                          itemBuilder: ((context, index) {
-                        
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 25,),
-                              child: GestureDetector(
-                                  onTap: (){
-                                    setState(() {
-                                      selected_Size = sizes[index] ;
-                                      
-                                    });
-                                  },
-                                
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 40, height: 40,
-                                        decoration: BoxDecoration(color: selected_Size == sizes[index] ?  Colors.red : Color.fromARGB(255, 146, 148, 150),
-                                         borderRadius: BorderRadius.all(Radius.circular(8),
-                                        ), 
-                                        ),
-                                        child: Center(
-                                          child: Text(sizes[index] , 
-                                          style: TextStyle(
-                                            fontSize: 18 , color: Colors.white, fontWeight: FontWeight.bold
-                                          ),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 35,),
-                                    ],
-                                  ),
-                                ),
-                            );
-                              
-                          } 
-                          )
-                          ),
-                        ),
-              ),
+               SizedBox(height: 5,),
 
               Padding(
                 padding: const EdgeInsets.only(left: 55 , right: 55),
