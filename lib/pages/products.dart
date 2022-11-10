@@ -16,6 +16,9 @@ class _ProductsState extends State<Products> {
   Widget build(BuildContext context) {
     return Scaffold( 
       appBar: AppBar(
+        leading: const BackButton(
+        color: Colors.black,
+      ),
             title: Text('Products',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold , color: Colors.black,
@@ -25,7 +28,7 @@ class _ProductsState extends State<Products> {
             
             ) ,
             centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 169, 171, 172),
+            backgroundColor: Colors.grey[300],
               shape: 
               RoundedRectangleBorder( 
       borderRadius: BorderRadius.vertical(
@@ -37,7 +40,7 @@ class _ProductsState extends State<Products> {
      actions: [
       IconButton(
         icon: Icon(
-          Icons.shopping_cart_outlined , size: 25, color: Colors.white,
+          Icons.shopping_cart_outlined , size: 25, color: Colors.black,
           ),
         onPressed: (){}, ),
       IconButton(

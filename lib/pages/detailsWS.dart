@@ -24,6 +24,9 @@ String selected_Size = '10';
 
     return Scaffold(
      appBar:  AppBar(
+      leading: const BackButton(
+        color: Colors.black,
+      ),
             title: Text('${args.category}\'s details',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold , color: Colors.black,
@@ -33,7 +36,7 @@ String selected_Size = '10';
             
             ) ,
             centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 169, 171, 172),
+            backgroundColor: Colors.grey[300],
               shape: 
               RoundedRectangleBorder( 
       borderRadius: BorderRadius.vertical(
@@ -45,7 +48,7 @@ String selected_Size = '10';
      actions: [
       IconButton(
         icon: Icon(
-          Icons.shopping_cart_outlined , size: 25, color: Colors.white,
+          Icons.shopping_cart_outlined , size: 25, color: Colors.black,
           ),
         onPressed: (){}, ),
       IconButton(

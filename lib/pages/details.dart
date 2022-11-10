@@ -24,6 +24,9 @@ String selected_Size = 'M';
 
     return Scaffold(
      appBar:  AppBar(
+      leading: const BackButton(
+        color: Colors.black,
+      ),
             title: Text('${args.category}\'s details',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold , color: Colors.black,
@@ -33,7 +36,7 @@ String selected_Size = 'M';
             
             ) ,
             centerTitle: true,
-            backgroundColor: Color.fromARGB(255, 169, 171, 172),
+            backgroundColor: Colors.grey[300],
               shape: 
               RoundedRectangleBorder( 
       borderRadius: BorderRadius.vertical(
@@ -45,7 +48,7 @@ String selected_Size = 'M';
      actions: [
       IconButton(
         icon: Icon(
-          Icons.shopping_cart_outlined , size: 25, color: Colors.white,
+          Icons.shopping_cart_outlined , size: 25, color: Colors.black,
           ),
         onPressed: (){}, ),
       IconButton(
@@ -195,7 +198,7 @@ String selected_Size = 'M';
                SizedBox(height: 8,),
 
               Padding(
-                padding: const EdgeInsets.only(left: 20 , right: 15),
+                padding: const EdgeInsets.only(left: 25 , right: 15),
                 child: Container( width: double.infinity, height: 70,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -215,7 +218,7 @@ String selected_Size = 'M';
                                   child: Row(
                                     children: <Widget>[
                                       Container(
-                                        width: 45, height: 45,
+                                        width: 40, height: 40,
                                         decoration: BoxDecoration(color: selected_Size == sizes[index] ?  Colors.red : Color.fromARGB(255, 146, 148, 150),
                                          borderRadius: BorderRadius.all(Radius.circular(8),
                                         ), 
@@ -228,7 +231,7 @@ String selected_Size = 'M';
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 31,),
+                                      SizedBox(width: 35,),
                                     ],
                                   ),
                                 ),
