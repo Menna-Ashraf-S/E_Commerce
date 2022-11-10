@@ -93,28 +93,29 @@ class _ProductsState extends State<Products> {
                                 '${product.price} \$',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                    color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.black,
                                 ),
                               ),
                             ]),
                       ),
                       onTap: () async {
-                        setState(() {
-                          print('    mmmmmmmmmm  ldmcksmkdmcs ${product.price is double}');
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => Details(
-                                title: product.title,
-                                imageURL: product.image,
-                                price: product.price,
-                                rate: product.rating.rate,
-                                description: product.description,
-                              ),
-                            ),
-                          );
-                        });
+                        setState(
+                          () {
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => Details(
+                            //       title: product.title,
+                            //       imageURL: product.image,
+                            //       price: product.price,
+                            //       rate: product.rating.rate,
+                            //       description: product.description,
+                            //     ),
+                            //   ),
+                            // );
+                          },
+                        );
                       },
                     );
                   });
