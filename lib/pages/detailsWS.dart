@@ -55,7 +55,8 @@ class _HomeState extends State < DetailsWS > {
               onPressed: (){}, ),
             IconButton(
               icon: heart ? Icon(
-                  Icons.favorite , size: 28, color: Colors.red[600]) : Icon(
+                  Icons.favorite , size: 28, color: Colors.red[600]) :
+              Icon(
                   Icons.favorite_border_outlined , size: 28, color: Colors.red[600]) ,
               onPressed: (){
                 setState(() {
@@ -88,7 +89,6 @@ class _HomeState extends State < DetailsWS > {
                   ),
                 ),
                 SizedBox(height: 25,),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 22 , right: 15),
                   child: Container(
@@ -101,29 +101,25 @@ class _HomeState extends State < DetailsWS > {
                   ),
                 ),
                 SizedBox(height: 10,),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 75 , right: 75),
                   child: Divider(
                     thickness: 1,
                   ),
                 ),
-
                 SizedBox(height: 10,),
-
                 Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                  padding: const EdgeInsets.only(left: 20,right: 20),
                   child:
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text('${args.price} \$ ' ,
                         style: TextStyle(
                           fontSize: 30 , fontWeight: FontWeight.bold , color: Color.fromARGB(255, 28, 27, 27) ,
                         ),
                       ),
-
-                      SizedBox(width: MediaQuery.of(context).size.width*0.35),
-                      GestureDetector(
+                      Row(children: [GestureDetector(
                         onTap: () {
                           setState(() {
                             if (quantity<=1)
@@ -145,42 +141,33 @@ class _HomeState extends State < DetailsWS > {
                           child: Icon(Icons.remove , size: 18, color: Colors.white, ),
                         ),
                       ),
-
-                      SizedBox(width: 10,),
-
-
-
-                      Text('${quantity}',
-                        style: TextStyle(
-                            fontSize: 20 ,  color: Colors.black, fontWeight: FontWeight.bold
-                        ),
-                      ),
-
-                      SizedBox(width: 10,),
-
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            quantity ++ ;
-                          });
-                        },
-                        child: Container( width: 35, height: 35,
-                          decoration: BoxDecoration(color: Color.fromARGB(255, 169, 171, 172),
-                            borderRadius: BorderRadius.all(Radius.circular(5),
-                            ),
+                        SizedBox(width: 10,),
+                        Text('${quantity}',
+                          style: TextStyle(
+                              fontSize: 20 ,  color: Colors.black, fontWeight: FontWeight.bold
                           ),
-                          child: Icon(Icons.add , size: 18, color: Colors.white, ),
                         ),
-                      ),
+                        SizedBox(width: 10,),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              quantity ++ ;
+                            });
+                          },
+                          child: Container( width: 35, height: 35,
+                            decoration: BoxDecoration(color: Color.fromARGB(255, 169, 171, 172),
+                              borderRadius: BorderRadius.all(Radius.circular(5),
+                              ),
+                            ),
+                            child: Icon(Icons.add , size: 18, color: Colors.white, ),
+                          ),
+                        ),],),
+
                     ],
                   ),
 
                 ),
-
-
-
                 SizedBox(height: 8,),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 15 , right: 15),
                   child: Row(
@@ -203,9 +190,7 @@ class _HomeState extends State < DetailsWS > {
                   ),
 
                 ),
-
                 SizedBox(height: 8,),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 15 , right: 15),
                   child: Container( width: double.infinity, height: 70,
@@ -251,14 +236,12 @@ class _HomeState extends State < DetailsWS > {
                     ),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 55 , right: 55),
                   child: Divider(
                     thickness: 1,
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 15 , right: 15 , top: 15),
                   child: Container(
@@ -284,7 +267,6 @@ class _HomeState extends State < DetailsWS > {
                   ),
                 ),
                 SizedBox(height: 15,),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 30 ,right: 30),
                   child: Container(
@@ -306,9 +288,7 @@ class _HomeState extends State < DetailsWS > {
                       onPressed: (){}, ),
                   ),
                 ),
-
                 SizedBox(height: 30,),
-
               ],
             ),
           )
