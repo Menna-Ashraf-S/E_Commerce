@@ -25,8 +25,8 @@ class _ProductsState extends State<Products> {
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: Colors.grey[300],
+        // elevation: 0,
       ),
       body: FutureBuilder<List<ProductsData>>(
           future: Api_products().my_api(),

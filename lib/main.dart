@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/pages/home.dart';
+import 'package:flutter_pro/pages/navigation.dart';
 import 'package:flutter_pro/pages/products.dart';
+
 import 'local/dbHelper_fav.dart';
 
 void main() async {
@@ -14,19 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       color: Colors.white,
       debugShowCheckedModeBanner: false,
-      home: Products(),
+      home: Navigation(),
     );
   }
 }
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: null);
-  }
-}

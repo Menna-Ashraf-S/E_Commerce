@@ -41,7 +41,8 @@ class _HomeState extends State<Home> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 20,
-                    // childAspectRatio: .5,
+                    childAspectRatio: 0.75,
+
                   ),
                   itemBuilder: (context, index) {
                     return Column(
@@ -88,38 +89,7 @@ class _HomeState extends State<Home> {
           },
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 20,
-        selectedFontSize: 0,
-        iconSize: 25,
-        backgroundColor: Colors.grey[200],
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.grey[500],
-        selectedItemColor: Colors.grey[800],
-        items: [
-          BottomNavigationBarItem(
-            icon: IconButton(
-              onPressed: (){},
-              icon: Icon(Icons.home),
-            ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "",
-          ),
-        ],
-      ),
+
     );
   }
 }
