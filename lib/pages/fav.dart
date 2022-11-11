@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/dbHelper_fav.dart';
 
 import '../local/fav_SQL.dart';
+import '../local/navigat_details.dart';
 
 class FavList extends StatefulWidget {
   @override
@@ -30,13 +31,15 @@ class _FavListState extends State<FavList> {
             appBar: AppBar(
               elevation: 0,
               backgroundColor: Colors.white,
-              title: Text(
-                'Favourite List',
-                style: TextStyle(
-                  color: Colors.black,
+              title: Center(
+                child: Text(
+                  'Favourite List',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
               ),
-              leading: IconButton(
+              /*leading: IconButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -45,7 +48,7 @@ class _FavListState extends State<FavList> {
                   color: Colors.black,
                   size: 30,
                 ),
-              ),
+              ),*/
             ),
             body: GridView.count(
               crossAxisCount: 2,
@@ -61,10 +64,9 @@ class _FavListState extends State<FavList> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: InkWell(
-                      onTap: () {
-                        print('return To details page');
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => null,));
-                      },
+                        onTap: () async {
+
+                        },
                       child: Container(
                         child: Column(
                           children: [
@@ -109,17 +111,17 @@ class _FavListState extends State<FavList> {
 
                                                 children: [
                                                   Container(
-                                                    width: 65,
-                                                    height: 65,
+                                                    width: 55,
+                                                    height: 55,
                                                   ),
                                                   Container(
-                                                    height: 50,
-                                                    width: 53,
+                                                    height: 45,
+                                                    width: 45,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               40),
-                                                      color: Colors.black.withOpacity(0.45),
+                                                      // color: Colors.black.withOpacity(0.15),
                                                     ),
                                                     child: IconButton(
                                                       onPressed: () {
@@ -132,7 +134,7 @@ class _FavListState extends State<FavList> {
                                                       },
                                                       icon: Icon(
                                                         Icons.favorite,
-                                                        size: 37,
+                                                        size: 30,
                                                       ),
                                                       color: Colors.red,
                                                     ),

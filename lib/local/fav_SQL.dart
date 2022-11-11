@@ -3,6 +3,7 @@ import 'dbHelper_fav.dart';
 class Fav{
   int? id;
   late String imageURL;
+  // late String categ;
   late String title;
   dynamic price;
   late double rate;
