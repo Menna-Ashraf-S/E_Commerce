@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/fav_SQL.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
+import 'package:flutter_pro/pages/cart.dart';
 import 'package:rate/rate.dart';
 
 import '../local/dbHelper_fav.dart';
@@ -53,7 +54,13 @@ class _HomeState extends State < DetailsWS > {
               icon: Icon(
                 Icons.shopping_cart_outlined , size: 25, color: Colors.black,
               ),
-              onPressed: (){}, ),
+              onPressed: (){
+                Navigator.push(context,  MaterialPageRoute(
+                  builder: (context) {
+                    return CartScreen();
+                  },
+                ));
+              }, ),
             IconButton(
               icon: heart ? Icon(
                   Icons.favorite , size: 28, color: Colors.red[600]) :
@@ -63,7 +70,6 @@ class _HomeState extends State < DetailsWS > {
                 setState(() {
                   heart = !heart;
                   FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating));
-
                 });
               }, ),
             SizedBox(width: 5),

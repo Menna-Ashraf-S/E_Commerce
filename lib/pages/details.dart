@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/Model_products/products.dart';
+import 'package:flutter_pro/local/cart_SQL.dart';
+import 'package:flutter_pro/local/dbHelper_cart.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
+
+import 'cart.dart';
 
 class Details extends StatefulWidget {
   @override
@@ -9,9 +14,10 @@ class Details extends StatefulWidget {
 
 class _HomeState extends State<Details> {
   int quantity = 1;
-
   String selected_Size = 'M';
   List sizes = ['S', 'M', 'L', 'XL', '2X'];
+  late ProductsData c;
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +49,13 @@ class _HomeState extends State<Details> {
                 size: 25,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,  MaterialPageRoute(
+                  builder: (context) {
+                    return CartScreen();
+                  },
+                ));
+              },
             ),
             IconButton(
               icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
@@ -334,7 +346,21 @@ class _HomeState extends State<Details> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                      setState(() {
+                        CartHelper.instance.insertCart(
+                          Carts(
+                              image: args.image,
+                              price:  args.price,
+                              rating: args.rating,
+                              count:  args.count,
+                              category: args.category,
+                              title: args.title,
+                              description: args.description
+                          ),
+                        );
+                      });
+                      },
                     ),
                   ),
                 ),

@@ -3,11 +3,14 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 final String columnId = 'id';
-final String columnName = 'name';
 final String columnImage = 'image';
 final String columnPrice = 'price';
 final String columnCount = 'count';
-final String recipeTable = 'recipe_table';
+final String columnRating = 'rating';
+final String columnCategory = 'category';
+final String columnTitle = 'title';
+final String columnDescription = 'description';
+final String cartTable = 'cart_table';
 
 class CartHelper {
   late Database db;
@@ -22,11 +25,14 @@ class CartHelper {
         version: 1, onCreate: (Database db, int version) async {
           await db.execute('''
           create table cartTable (
-          $columnId integer not null,
+          $columnId integer primary key autoincrement,
           $columnCount integer not null,
           $columnPrice real not null,
-          $columnName text not null,
-          $columnImage text not null
+          $columnImage text not null,
+          $columnDescription text not null,
+          $columnTitle text not null,
+          $columnCategory text not null,
+          $columnRating text not null
           )
           ''');
         });
@@ -42,7 +48,7 @@ class CartHelper {
         .delete('cartTable', where: '$columnId = ?', whereArgs: [id]);
   }
 
-  Future<List<Carts>> getAllRecipes() async {
+  Future<List<Carts>> getAllCarts() async {
     List<Map<String, dynamic>> CartMaps = await db.query('cartTable');
     if (CartMaps.isEmpty) {
       return [];

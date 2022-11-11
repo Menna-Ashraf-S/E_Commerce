@@ -3,6 +3,7 @@ import 'package:flutter_pro/pages/products.dart';
 
 import '../network/api.getCategory.dart';
 import '../network/api.getProducts.dart';
+import 'cart.dart';
 
 
 class Home extends StatefulWidget {
@@ -47,7 +48,13 @@ class _HomeState extends State<Home> {
                 size: 25,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,  MaterialPageRoute(
+                  builder: (context) {
+                    return CartScreen();
+                  },
+                ));
+              },
             ),
             SizedBox(width: 14),
           ],

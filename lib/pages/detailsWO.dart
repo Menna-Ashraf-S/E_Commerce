@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
+import 'cart.dart';
+
 class DetailsWO extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -40,7 +42,13 @@ class _HomeState extends State<DetailsWO> {
                 size: 25,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,  MaterialPageRoute(
+                    builder: (context) {
+                  return CartScreen();
+                },
+                ));
+              },
             ),
             IconButton(
               icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
