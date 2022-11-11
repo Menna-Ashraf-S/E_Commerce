@@ -27,12 +27,13 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          elevation: 2.5,
           title: Text(
             'Category',
             style:TextStyle(fontSize: 26, color: Colors.black,),
           ),
           centerTitle: true,
-          backgroundColor: Colors.grey[300],
+          backgroundColor: Colors.grey[200],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(28),

@@ -19,6 +19,7 @@ class _HomeState extends State<Details> {
 
     return Scaffold(
         appBar: AppBar(
+          elevation: 2.5,
           leading: const BackButton(
             color: Colors.black,
           ),
@@ -28,7 +29,7 @@ class _HomeState extends State<Details> {
                 fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
           ),
           centerTitle: true,
-          backgroundColor: Colors.grey[300],
+          backgroundColor: Colors.grey[200],
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(28),

@@ -29,8 +29,15 @@ class _FavListState extends State<FavList> {
           favList = snapshot.data!;
           return Scaffold(
             appBar: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(28),
+                ),
+              ),
+              toolbarHeight: 60,
+              foregroundColor: Colors.black,
+              elevation: 2.5,
+              backgroundColor: Colors.grey[200],
               title: Center(
                 child: Text(
                   'Favourite List',
@@ -39,16 +46,6 @@ class _FavListState extends State<FavList> {
                   ),
                 ),
               ),
-              /*leading: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                  size: 30,
-                ),
-              ),*/
             ),
             body: GridView.count(
               crossAxisCount: 2,
@@ -64,9 +61,7 @@ class _FavListState extends State<FavList> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: InkWell(
-                        onTap: () async {
-
-                        },
+                      onTap: () async {},
                       child: Container(
                         child: Column(
                           children: [
@@ -105,41 +100,34 @@ class _FavListState extends State<FavList> {
                                                       height: 190,
                                                     ),
                                                   )),
-                                              Stack(
-                                                alignment:
-                                                    AlignmentDirectional.center,
-
-                                                children: [
-                                                  Container(
-                                                    width: 55,
-                                                    height: 55,
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Container(
+                                                  height: 45,
+                                                  width: 45,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            40),
+                                                    //color: Colors.black.withOpacity(0.15),
                                                   ),
-                                                  Container(
-                                                    height: 45,
-                                                    width: 45,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              40),
-                                                      // color: Colors.black.withOpacity(0.15),
+                                                  child: IconButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        FavProvider.instance
+                                                            .delete(
+                                                          favList[index].id!,
+                                                        );
+                                                      });
+                                                    },
+                                                    icon: Icon(
+                                                      Icons.favorite,
+                                                      size: 30,
                                                     ),
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        setState(() {
-                                                          FavProvider.instance
-                                                              .delete(
-                                                            favList[index].title,
-                                                          );
-                                                        });
-                                                      },
-                                                      icon: Icon(
-                                                        Icons.favorite,
-                                                        size: 30,
-                                                      ),
-                                                      color: Colors.red,
-                                                    ),
+                                                    color: Colors.red,
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -147,12 +135,13 @@ class _FavListState extends State<FavList> {
                                             height: 10,
                                           ),
                                           Center(
-                                              child: Text(
-                                            favList[index].title,
-                                            maxLines: 3,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(fontSize: 14),
-                                          )),
+                                            child: Text(
+                                              favList[index].title,
+                                              maxLines: 3,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(fontSize: 14),
+                                            ),
+                                          ),
                                           SizedBox(
                                             height: 10,
                                           ),
@@ -163,9 +152,9 @@ class _FavListState extends State<FavList> {
                                               Text(
                                                 '${favList[index].price.toString()} \$',
                                                 style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                               ),
                                               Container(
                                                 width: 60,
@@ -186,8 +175,12 @@ class _FavListState extends State<FavList> {
                                                           fontWeight:
                                                               FontWeight.bold),
                                                     ),
+                                                    SizedBox(
+                                                      width: 2,
+                                                    ),
                                                     Icon(
                                                       Icons.star,
+                                                      size: 22,
                                                       color: Colors.white,
                                                     ),
                                                   ],

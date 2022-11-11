@@ -131,6 +131,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/Model_products/products.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:flutter_pro/network/api.getProducts.dart';
+import 'package:flutter_pro/pages/fav.dart';
 
 class Products extends StatefulWidget {
   late String categoryName;
@@ -153,8 +154,9 @@ class _ProductsState extends State<Products> {
            'Products',
            style:TextStyle(fontSize: 26,fontWeight: FontWeight.bold, color: Colors.black,),
          ),
+        elevation: 2.5,
         centerTitle: true,
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey[200],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(28),
@@ -172,7 +174,9 @@ class _ProductsState extends State<Products> {
           ),
           IconButton(
             icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FavList(),));
+            },
           ),
           SizedBox(width: 5),
         ],

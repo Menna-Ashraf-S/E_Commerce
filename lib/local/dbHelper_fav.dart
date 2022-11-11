@@ -1,6 +1,5 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-
 import 'fav_SQL.dart';
 
 final String columnId = 'id';
@@ -54,8 +53,8 @@ create table $productsTable (
     }
   }
 
-  Future<int> delete(String title) async {
-    return await db.delete(productsTable, where: '$columnTitle = ?', whereArgs: [title]);
+  Future<int> delete(int id) async {
+    return await db.delete(productsTable, where: '$columnId = ?', whereArgs: [id]);
   }
 
   Future<int> update(Fav fav) async {

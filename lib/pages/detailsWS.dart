@@ -28,6 +28,7 @@ class _HomeState extends State < DetailsWS > {
 
     return Scaffold(
         appBar:  AppBar(
+          elevation: 2.5,
           leading: const BackButton(
             color: Colors.black,
           ),
@@ -38,7 +39,7 @@ class _HomeState extends State < DetailsWS > {
 
           ) ,
           centerTitle: true,
-          backgroundColor: Colors.grey[300],
+          backgroundColor: Colors.grey[200],
           shape:
           RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
