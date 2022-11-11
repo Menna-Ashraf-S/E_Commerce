@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/local/dbHelper_cart.dart';
 import 'package:flutter_pro/pages/navigation.dart';
 import 'local/dbHelper_fav.dart';
 import 'package:flutter_pro/pages/details.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_pro/pages/detailsWS.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FavProvider.instance.open();
+  await CartHelper.instance.open();
   runApp(MyApp());
 }
 

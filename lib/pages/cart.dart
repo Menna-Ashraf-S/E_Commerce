@@ -21,16 +21,23 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     List<Carts> carts = [];
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const Text(
-          'Cart',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
-        ),
-        elevation: 0,
-      ),
+      appBar:  AppBar(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(28),
+                ),
+              ),
+              toolbarHeight: 60,
+              foregroundColor: Colors.black,
+              elevation: 2.5,
+              backgroundColor: Colors.grey[200],
+              title: Center(
+                child: Text(
+                  'Cart',
+                   style:TextStyle(fontSize: 26, color: Colors.black,),
+                ),
+              ),
+            ),
       body: FutureBuilder<List<Carts>>(
           future: CartHelper.instance.getAllCarts(),
           builder: (context, snapshot) {
