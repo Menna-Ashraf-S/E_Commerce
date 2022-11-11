@@ -9,6 +9,7 @@ import 'package:flutter_pro/pages/detailsWS.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FavProvider.instance.open();
+  await CartHelper.instance.open();
   runApp(MyApp());
 }
 
