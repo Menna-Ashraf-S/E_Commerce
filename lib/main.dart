@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pro/pages/home.dart';
 import 'package:flutter_pro/pages/navigation.dart';
-import 'package:flutter_pro/pages/products.dart';
 import 'local/dbHelper_fav.dart';
 import 'package:flutter_pro/pages/details.dart';
 import 'package:flutter_pro/pages/detailsWO.dart';
 import 'package:flutter_pro/pages/detailsWS.dart';
-import 'package:flutter_pro/pages/products.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

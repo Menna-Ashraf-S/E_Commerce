@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/local/cart_SQL.dart';
+import 'package:flutter_pro/local/dbHelper_cart.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
@@ -11,7 +13,7 @@ class DetailsWO extends StatefulWidget {
 
 class _HomeState extends State<DetailsWO> {
   int quantity = 1;
-
+  bool heart = false;
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Navigat_Details;
@@ -51,7 +53,10 @@ class _HomeState extends State<DetailsWO> {
               },
             ),
             IconButton(
-              icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
+               icon: heart ? Icon(
+                  Icons.favorite , size: 28, color: Colors.red[600]) :
+              Icon(
+                  Icons.favorite_border_outlined , size: 28, color: Colors.red[600]) ,
               onPressed: () {},
             ),
             SizedBox(width: 5),
@@ -289,7 +294,21 @@ class _HomeState extends State<DetailsWO> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                        CartHelper.instance.insertCart(
+                          Carts(
+                              image: args.image,
+                              price:  args.price,
+                              rating: args.rating,
+                              count:  args.count,
+                              category: args.category,
+                              title: args.title,
+                              description: args.description
+                          ),
+                        );
+                      });
+                      },
                     ),
                   ),
                 ),

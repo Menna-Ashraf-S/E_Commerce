@@ -13,10 +13,10 @@ class Details extends StatefulWidget {
 }
 
 class _HomeState extends State<Details> {
+  bool heart = false;
   int quantity = 1;
   String selected_Size = 'M';
   List sizes = ['S', 'M', 'L', 'XL', '2X'];
-  late ProductsData c;
 
 
   @override
@@ -58,7 +58,10 @@ class _HomeState extends State<Details> {
               },
             ),
             IconButton(
-              icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
+               icon: heart ? Icon(
+                  Icons.favorite , size: 28, color: Colors.red[600]) :
+              Icon(
+                  Icons.favorite_border_outlined , size: 28, color: Colors.red[600]) ,
               onPressed: () {},
             ),
             SizedBox(width: 5),

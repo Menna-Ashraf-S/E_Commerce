@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pro/local/cart_SQL.dart';
+import 'package:flutter_pro/local/dbHelper_cart.dart';
 import 'package:flutter_pro/local/fav_SQL.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:flutter_pro/pages/cart.dart';
@@ -292,7 +294,21 @@ class _HomeState extends State < DetailsWS > {
                           borderRadius: BorderRadius.all(Radius.circular(20),),
                         ),
                       ),
-                      onPressed: (){}, ),
+                      onPressed: (){
+                        setState(() {
+                        CartHelper.instance.insertCart(
+                          Carts(
+                              image: args.image,
+                              price:  args.price,
+                              rating: args.rating,
+                              count:  args.count,
+                              category: args.category,
+                              title: args.title,
+                              description: args.description
+                          ),
+                        );
+                      });
+                      }, ),
                   ),
                 ),
                 SizedBox(height: 30,),
