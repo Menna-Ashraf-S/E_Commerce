@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/Model_products/products.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:flutter_pro/network/api.getProducts.dart';
+import 'package:flutter_pro/pages/cart.dart';
 import 'package:flutter_pro/pages/fav.dart';
 
 class Products extends StatefulWidget {
@@ -42,7 +43,9 @@ class _ProductsState extends State<Products> {
               size: 25,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartScreen(),));
+            },
           ),
           IconButton(
             icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),

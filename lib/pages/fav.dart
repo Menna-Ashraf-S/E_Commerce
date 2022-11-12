@@ -40,9 +40,7 @@ class _FavListState extends State<FavList> {
               title: Center(
                 child: Text(
                   'Favourite List',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+                   style:TextStyle(fontSize: 26, color: Colors.black,),
                 ),
               ),
             ),

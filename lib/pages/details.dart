@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
-import '../local/dbHelper_fav.dart';
-import '../local/fav_SQL.dart';
-
 class Details extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -13,7 +10,6 @@ class Details extends StatefulWidget {
 class _HomeState extends State<Details> {
   int quantity = 1;
 
-  bool heart = false;
   String selected_Size = 'M';
   List sizes = ['S', 'M', 'L', 'XL', '2X'];
 
@@ -50,14 +46,8 @@ class _HomeState extends State<Details> {
               onPressed: () {},
             ),
             IconButton(
-              icon: heart ? Icon(Icons.favorite, size: 28, color: Colors.red[600]) : Icon(Icons.favorite_border_outlined, size: 28, color: Colors.red[600]),
-              onPressed: () {
-                setState(() {
-
-                heart = !heart;
-                heart ? FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating, description:args.description,categoryName: args.category, count: args.count,)) : FavProvider.instance.deleteTitle(args.title);
-                });
-              },
+              icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
+              onPressed: () {},
             ),
             SizedBox(width: 5),
           ],
