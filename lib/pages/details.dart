@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_pro/Model_products/products.dart';
+import 'package:flutter_pro/local/cart_SQL.dart';
+import 'package:flutter_pro/local/dbHelper_cart.dart';
 import '../local/dbHelper_fav.dart';
 import '../local/fav_SQL.dart';
 import 'cart.dart';
@@ -344,7 +347,21 @@ class _HomeState extends State<Details> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                      setState(() {
+                        CartHelper.instance.insertCart(
+                          Carts(
+                              image: args.image,
+                              price:  args.price,
+                              rating: args.rating,
+                              count:  args.count,
+                              category: args.category,
+                              title: args.title,
+                              description: args.description
+                          ),
+                        );
+                      });
+                      },
                     ),
                   ),
                 ),
