@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
+import '../local/dbHelper_fav.dart';
+import '../local/fav_SQL.dart';
+import 'cart.dart';
+
 class DetailsWO extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -9,6 +13,7 @@ class DetailsWO extends StatefulWidget {
 
 class _HomeState extends State<DetailsWO> {
   int quantity = 1;
+  bool heart = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +45,16 @@ class _HomeState extends State<DetailsWO> {
                 size: 25,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartScreen(),));
+              },
             ),
             IconButton(
               icon: Icon(Icons.favorite, size: 28, color: Colors.red[600]),
-              onPressed: () {},
+              onPressed: () {
+                heart = !heart;
+                FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating, description: args.description , categoryName: args.category , count: args.count));
+              },
             ),
             SizedBox(width: 5),
           ],

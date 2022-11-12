@@ -4,6 +4,7 @@ import 'package:flutter_pro/local/navigat_details.dart';
 import 'package:rate/rate.dart';
 
 import '../local/dbHelper_fav.dart';
+import 'cart.dart';
 
 
 class DetailsWS  extends StatefulWidget {
@@ -53,7 +54,9 @@ class _HomeState extends State < DetailsWS > {
               icon: Icon(
                 Icons.shopping_cart_outlined , size: 25, color: Colors.black,
               ),
-              onPressed: (){}, ),
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartScreen(),));
+              }, ),
             IconButton(
               icon: heart ? Icon(
                   Icons.favorite , size: 28, color: Colors.red[600]) :
@@ -62,7 +65,7 @@ class _HomeState extends State < DetailsWS > {
               onPressed: (){
                 setState(() {
                   heart = !heart;
-                  FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating));
+                  FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating, description: args.description , categoryName: args.category , count: args.count));
 
                 });
               }, ),
