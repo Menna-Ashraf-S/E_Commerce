@@ -1,7 +1,7 @@
 class Navigat_Details {
   String image ;
   String title ;
-  double price ;
+  dynamic price ;
   String description ;
   double rating ;
   int count ;

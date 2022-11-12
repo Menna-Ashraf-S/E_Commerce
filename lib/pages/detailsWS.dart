@@ -62,7 +62,7 @@ class _HomeState extends State < DetailsWS > {
               onPressed: (){
                 setState(() {
                   heart = !heart;
-                  FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating));
+                  FavProvider.instance.insert(Fav(imageURL: args.image, title: args.title, price: args.price, rate: args.rating, description:args.description,categoryName: args.category, count: args.count,));
 
                 });
               }, ),

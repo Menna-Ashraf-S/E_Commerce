@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pro/local/dbHelper_fav.dart';
-
 import '../local/fav_SQL.dart';
 import '../local/navigat_details.dart';
 
@@ -61,7 +60,48 @@ class _FavListState extends State<FavList> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: InkWell(
-                      onTap: () async {},
+                      onTap: () async {
+                        print('${favList[index].imageURL.toString()}');
+                        if (favList[index].categoryName == 'electronics') {
+                          Navigator.pushNamed(context, '/detailsWO',
+                              arguments: Navigat_Details(
+                                  image: favList[index].imageURL,
+                                  title: favList[index].title,
+                                  price: favList[index].price,
+                                  description: favList[index].description,
+                                  rating: favList[index].rate,
+                                  count: favList[index].count,
+                                  category: favList[index].categoryName));
+                        } else if (favList[index].categoryName == 'jewelery') {
+                          Navigator.pushNamed(context, '/detailsWS',
+                              arguments: Navigat_Details(
+                                  image: favList[index].imageURL,
+                                  title: favList[index].title,
+                                  price: favList[index].price,
+                                  description: favList[index].description,
+                                  rating: favList[index].rate,
+                                  count: favList[index].count,
+                                  category: favList[index].categoryName));
+                        } else {
+                          Navigator.pushNamed(
+                            context,
+                            '/details',
+                            arguments: Navigat_Details(
+                              image: favList[index].imageURL,
+                              title: favList[index].title,
+                              price: favList[index].price,
+                              description: favList[index].description,
+                              rating: favList[index].rate,
+                              count: favList[index].count,
+                              category: favList[index].categoryName,
+                            ),
+                          );
+                        }
+                        setState(() {
+
+                        });
+
+                      },
                       child: Container(
                         child: Column(
                           children: [

@@ -7,6 +7,9 @@ final String columnTitle = 'title';
 final String columnImageURL = 'imageURL';
 final String columnPrice = 'price';
 final String columnRate = 'rate';
+final String columnCategoryName = 'categoryName';
+final String columnDescription = 'description';
+final String columnCount = 'count';
 final String productsTable = 'products_table';
 
 class FavProvider {
@@ -21,14 +24,17 @@ class FavProvider {
   FavProvider._internal();
 
   Future open() async {
-    db = await openDatabase(join(await getDatabasesPath(), 'fav.db'),
+    db = await openDatabase(join(await getDatabasesPath(), 'favourite.db'),
         version: 1, onCreate: (Database db, int version) async {
           await db.execute('''
 create table $productsTable ( 
   $columnId integer primary key autoincrement, 
   $columnTitle integer not null,
   $columnImageURL integer not null,
+  $columnDescription integer not null,
+  $columnCategoryName integer not null,
   $columnRate real not null,
+  $columnCount integer not null,
   $columnPrice real not null
   )
 ''');
@@ -55,6 +61,9 @@ create table $productsTable (
 
   Future<int> delete(int id) async {
     return await db.delete(productsTable, where: '$columnId = ?', whereArgs: [id]);
+  }
+  Future<int> deleteTitle(String title) async {
+    return await db.delete(productsTable, where: '$columnTitle = ?', whereArgs: [title]);
   }
 
   Future<int> update(Fav fav) async {
